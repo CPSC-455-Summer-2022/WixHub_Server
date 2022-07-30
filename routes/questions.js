@@ -131,33 +131,40 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *               items:
 *                 $ref: '#/components/schemas/Destination'
 *     parameters:
-*     - name: id
-*       required: true
-*       type: string
-*     - name: question1
-*       required: true
-*       type: string
-*     - name: question2
-*       required: true
-*       type: string
-*     - name: question3
-*       required: true
-*       type: string
-*     - name: question4
-*       required: true
-*       type: string
-*     - name: question5
-*       required: true
-*       type: string
-*     - name: question6
-*       required: true
-*       type: string
-*     - name: question7
-*       required: true
-*       type: string
-*     - name: question8
-*       required: true
-*       type: string
+*     - in: body
+*       name: recommendation
+*       description: the info required for a recommendation
+*       schema:
+*         type: object
+*         required:
+*           - id
+*           - question1
+*           - question2
+*           - question3
+*           - question4
+*           - question5
+*           - question6
+*           - question7
+*           - question8
+*         properties:
+*           id:
+*             type: string
+*           question1:
+*             type: string
+*           question2:
+*             type: string
+*           question3:
+*             type: string
+*           question4:
+*             type: string
+*           question5:
+*             type: string
+*           question6:
+*             type: string
+*           question7:
+*             type: string
+*           question8:
+*             type: string
 */
 // provide a destination recommendation based on a series of question answers
 router.patch('/recommendation', function (req, res, next) {
@@ -202,6 +209,3 @@ router.patch('/recommendation', function (req, res, next) {
 });
 
 module.exports = router;
-
-
-
