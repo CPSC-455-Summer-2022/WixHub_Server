@@ -15,6 +15,9 @@ const swaggerOptions = {
         },
         servers: [{
             url: "http://wixhub-server.herokuapp.com"
+        },
+        {
+            url: "http://localhost:3001/"
         }]
     },
     apis: ["./routes/*.js"]
