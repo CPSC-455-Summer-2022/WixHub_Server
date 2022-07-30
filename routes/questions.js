@@ -160,7 +160,7 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 // provide a destination recommendation based on a series of question answers
 router.patch('/recommendation', function (req, res, next) {
     const userId = req.body.id;
-    User.find(userId).then((user) => {
+    User.findById(userId).then((user) => {
         let userDests = user.destinations;
 
         let destinationsScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
