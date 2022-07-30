@@ -127,7 +127,7 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *         content:
 *           application/json:
 *             schema:
-*               type: string
+*               type: object
 *     parameters:
 *     - name: id
 *       required: true
