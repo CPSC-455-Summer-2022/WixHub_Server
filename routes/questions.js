@@ -177,7 +177,7 @@ router.patch('/recommendation', function (req, res, next) {
         let maxVal = 0;
         let maxIndex = 0;
         for (let i = 0; i < destinationsScore.length; i++) {
-            if (maxVal < destinationsScore[i] && !userDests.contains(i + 1)) {
+            if (maxVal < destinationsScore[i] && !userDests.includes(i + 1)) {
                 maxVal = destinationsScore[i];
                 maxIndex = i;
             }
