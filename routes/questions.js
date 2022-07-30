@@ -126,8 +126,10 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *         description: provides a recommendation (returns id of destination)
 *         content:
 *           application/json:
-*             schema: Destination
+*             schema:
 *               type: object
+*               items:
+*                 $ref: '#/components/schemas/Destination'
 *     parameters:
 *     - name: id
 *       required: true
