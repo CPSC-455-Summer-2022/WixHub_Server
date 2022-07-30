@@ -134,28 +134,28 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *       type: string
 *     - name: question1
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question2
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question3
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question4
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question5
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question6
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question7
 *       required: true
-*       type: integer
+*       type: string
 *     - name: question8
 *       required: true
-*       type: integer
+*       type: string
 */
 // provide a destination recommendation based on a series of question answers
 router.patch('/recommendation', function (req, res, next) {
