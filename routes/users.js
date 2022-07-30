@@ -141,11 +141,9 @@ router.get('/:id', function (req, res, next) {
 // login user
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
-  const foundUser = User.find(user => user.email === email);
-  if (foundUser) {
-    console.log(password);
-    console.log(foundUser.password);
-    if (password == foundUser.password) {
+  const foundUser = await User.find({ email: email });
+  if (foundUser != null) {
+    if (password == foundUser[0].password) {
       const token = generateAccessToken(email);
       res.json({
         foundUser,
