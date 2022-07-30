@@ -26,6 +26,8 @@ var usersRouter = require('./routes/users');
 var destinationsRouter = require('./routes/destinations');
 var questionsRouter = require('./routes/questions');
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+const dbSetup = require("./dbSetUp");
+dbSetup().then();
 
 var app = express();
 
