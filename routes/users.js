@@ -96,7 +96,7 @@ router.get('/', function (req, res, next) {
 */
 router.get('/:id', function (req, res, next) {
   const userId = req.params.id;
-  User.find({ _id: userId }).then((result, err) => {
+  User.findById(userId).then((result, err) => {
     res.send(result);
   }).catch((err) => {
     res.status(404).send(err);
