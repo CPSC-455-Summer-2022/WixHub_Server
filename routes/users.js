@@ -96,13 +96,11 @@ router.get('/', function (req, res, next) {
 */
 router.get('/:id', function (req, res, next) {
   const userId = req.params.id;
-  User.findById(userId).then((result) => {
-    if (result) {
-      res.send(result);
-    } else {
-      res.status(404).send();
-    }
-  });
+  User.find({ _id: userId }).then((result, err) => {
+    res.send(result);
+  }).catch((err) => {
+    res.status(404).send(err);
+  });;
 });
 
 /**
@@ -205,12 +203,10 @@ router.post('/', function (req, res, next) {
 router.delete('/:id', function (req, res) {
   const userId = req.params.id;
   User.findByIdAndDelete(userId).then((result) => {
-    if (result) {
-      res.status(202).send(result);
-    } else {
-      res.status(404).send();
-    }
-  });
+    res.status(202).send(result);
+  }).catch((err) => {
+    res.status(404).send(err);
+  });;
 });
 
 /**
@@ -234,7 +230,9 @@ router.delete('/', function (req, res) {
     User.find().then((result2) => {
       res.status(203).send(result2);
     })
-  });
+  }).catch((err) => {
+    res.status(400).send(err);
+  });;
 });
 
 /**
@@ -280,8 +278,12 @@ router.patch('/edit', function (req, res) {
   User.findByIdAndUpdate(userId, updatedInfo).then(() => {
     User.find().then((result) => {
       res.status(203).send(result);
+    }).catch((err) => {
+      res.status(404).send(err);
     });
-  });
+  }).catch((err) => {
+    res.status(404).send(err);
+  });;
 });
 
 module.exports.router = router;
