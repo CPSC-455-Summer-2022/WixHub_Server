@@ -13,9 +13,13 @@ const swaggerOptions = {
             title: 'youfly API',
             description: 'Youfly is a travel booking web application that allows users to create a personalized profile by answering a series of questions. This API is for our users, destinations and survey questions',
         },
-        servers: [{
-            url: "http://wixhub-server.herokuapp.com/"
-        }]
+        servers: [
+            {
+                url: "http://wixhub-server.herokuapp.com"
+            },
+            {
+                url: "http://localhost:3001/"
+            }]
     },
     apis: ["./routes/*.js"]
 }
@@ -29,6 +33,8 @@ var usersRouter = require('./routes/users');
 var destinationsRouter = require('./routes/destinations');
 var questionsRouter = require('./routes/questions');
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+const dbSetup = require("./models/dbSetUp");
+dbSetup().then();
 
 var app = express();
 
