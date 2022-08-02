@@ -24,6 +24,9 @@ const swaggerOptions = {
     apis: ["./routes/*.js"]
 }
 
+// setup db
+const dbSetup = require("./models/dbSetUp");
+dbSetup().then();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
