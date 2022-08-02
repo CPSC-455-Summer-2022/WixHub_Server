@@ -14,7 +14,7 @@ const swaggerOptions = {
             description: 'Youfly is a travel booking web application that allows users to create a personalized profile by answering a series of questions. This API is for our users, destinations and survey questions',
         },
         servers: [{
-            url: "https://wixhub-server.herokuapp.com/"
+            url: "http://wixhub-server.herokuapp.com/"
         }]
     },
     apis: ["./routes/*.js"]

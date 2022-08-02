@@ -200,7 +200,7 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 /**
 * @swagger
 * /questions/recommendation:
-*   post:
+*   patch:
 *     summary: provide a destination recommendation based on a series of question answers
 *     tags: [Questions]
 *     responses:
@@ -240,7 +240,7 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *       type: integer
 */
 // provide a destination recommendation based on a series of question answers
-router.post('/recommendation', function (req, res, next) {
+router.patch('/recommendation', function (req, res, next) {
     let destinationsScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     destinationsScore = switchHelper(req.body.question1, destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
     destinationsScore = switchHelper(req.body.question2, destinationsScore, 1, 7, 9, 3, 6, 9, 7, 4);
