@@ -205,7 +205,7 @@ router.patch('/recommendation', function (req, res, next) {
                     .send(recommendedDestination[0]);
             }).catch((err) => {
                 res.status(404).send(err);
-            });;
+            });
         }).catch((err) => {
             res.status(404).send(err);
         });
