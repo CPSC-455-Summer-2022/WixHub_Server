@@ -16,6 +16,14 @@ const DestinationSchema = new Schema({
     country: {
         type: String,
         require: true
+    },
+    description: {
+        type: String,
+        require: true
+    },
+    image: {
+        type: String,
+        require: true
     }
 }, {timestamps: true});
 

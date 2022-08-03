@@ -24,7 +24,6 @@ const swaggerOptions = {
     apis: ["./routes/*.js"]
 }
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var destinationsRouter = require('./routes/destinations');
