@@ -203,8 +203,14 @@ router.patch('/recommendation', function (req, res, next) {
                 return res
                     .status(201)
                     .send(recommendedDestination[0]);
-            });
+            }).catch((err) => {
+                res.status(404).send(err);
+            });;
+        }).catch((err) => {
+            res.status(404).send(err);
         });
+    }).catch((err) => {
+        res.status(404).send(err);
     });
 });
 
