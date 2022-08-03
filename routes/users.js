@@ -169,8 +169,10 @@ router.post('/login', async function (req, res, next) {
 router.post('/', function (req, res, next) {
   const user = {
     f_name: req.body.f_name,
-    l_name: req.body.l_name, country: req.body.country, destinations: req.body.destinations,
-    question_responses: req.body.question_responses, password: req.body.password
+    l_name: req.body.l_name, 
+    country: req.body.country,
+    email: req.body.email,
+    password: req.body.password
   };
   User.create(user).then((result) => {
     res.status(201).send(result);
