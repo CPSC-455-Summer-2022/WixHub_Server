@@ -100,7 +100,7 @@ router.get('/:id', function (req, res, next) {
     res.send(result);
   }).catch((err) => {
     res.status(404).send(err);
-  });;
+  });
 });
 
 /**
