@@ -202,7 +202,7 @@ router.patch('/recommendation', function (req, res, next) {
             Destination.find({ destinationId: maxIndex }).then((recommendedDestination) => {
                 return res
                     .status(201)
-                    .send(recommendedDestination);
+                    .send(recommendedDestination[0]);
             });
         });
     });
