@@ -113,7 +113,7 @@ router.get("/:id", function (req, res, next) {
 router.get("/destinationID/:id", function (req, res, next) {
     const destinationId = req.params.id;
     Destination.find({ destinationId: destinationId }).then((result) => {
-        res.send(result);
+        res.send(result[0]);
     }).catch((err) => {
         res.status(404).send(err);
     });;
