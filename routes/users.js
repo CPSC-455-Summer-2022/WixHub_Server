@@ -272,11 +272,11 @@ router.delete('/', function (req, res) {
 *       required: false
 *       type: array
 */
-router.patch('/edit', function (req, res) {
+router.patch('/edit/:id', function (req, res) {
   const userId = req.params.id;
   const updatedInfo = req.body;
   User.findByIdAndUpdate(userId, updatedInfo).then(() => {
-    User.find().then((result) => {
+    User.findById(userId).then((result) => {
       res.status(203).send(result);
     }).catch((err) => {
       res.status(404).send(err);
