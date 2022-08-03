@@ -18,21 +18,21 @@ const dbSetUp = async function () {
 };
 
 const initializeDb = async function () {
-    if (await User.find().limit(1).count(true) > 0) {
+    if (await User.find().limit(1).count(true) <= 0) {
         console.log("Users initialized")
     } else {
         console.log("Initializing users...")
         await initializeUsers();
     }
 
-    if (await Destination.find().limit(1).count(true) > 0) {
+    if (await Destination.find().limit(1).count(true) <= 0) {
         console.log("Destination initialized")
     } else {
         console.log("Initializing destination...")
         await initializeDestinations();
     }
 
-    if (await Question.find().limit(1).count(true) > 0) {
+    if (await Question.find().limit(1).count(true) <= 0) {
         console.log("Question initialized")
     } else {
         console.log("Initializing question...")
@@ -567,7 +567,7 @@ const initializeUsers = async function () {
             "f_name": "Josh",
             "l_name": "Tillson",
             "country": "Canada",
-            "destinations": ["1", "5"],
+            "destinations": ["1"],
             "question_responses": [1, 2, 3, 4, 1, 2, 3, 4],
             "email": "josh@tillson.com",
             "password": "1234password"
