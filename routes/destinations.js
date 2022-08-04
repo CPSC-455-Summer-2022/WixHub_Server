@@ -52,7 +52,6 @@ const Destination = require("../models/destinations");
 *                 $ref: '#/components/schemas/Destination'
 */
 router.get('/', function (req, res, next) {
-    //res.send(destinations);
     Destination.find().then((result) => {
         res.send(result);
     });
@@ -68,9 +67,10 @@ router.get('/', function (req, res, next) {
 *     parameters:
 *     - in: path
 *       name: id
-*       description: destinations's id (try '62eac685b3af24e5f1d0cc6d')
+*       description: destinations's id
 *       required: true
 *       type: string
+*       example: 62eac685b3af24e5f1d0cc6d
 *     responses:
 *       200:
 *         description: a single destination based on a given MongoDB id 
@@ -80,11 +80,13 @@ router.get('/', function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
+*       404:
+*         description: destination could not be found 
 */
 router.get("/:id", function (req, res, next) {
     const destinationId = req.params.id;
     Destination.findById(destinationId).then((result) => {
-        res.send(result);
+        res.status(200).send(result);
     }).catch((err) => {
         res.status(404).send(err);
     });
@@ -102,6 +104,7 @@ router.get("/:id", function (req, res, next) {
 *       description: destinations's id
 *       required: true
 *       type: string
+*       example: 1
 *     responses:
 *       200:
 *         description: a single destination based on a given destinationID (different from above because it's the id returned by recommendation engine)
@@ -111,11 +114,13 @@ router.get("/:id", function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
+*       404:
+*         description: destination could not be found 
 */
 router.get("/destinationID/:id", function (req, res, next) {
     const destinationId = req.params.id;
     Destination.find({ destinationId: destinationId }).then((result) => {
-        res.send(result[0]);
+        res.status(200).send(result[0]);
     }).catch((err) => {
         res.status(404).send(err);
     });;

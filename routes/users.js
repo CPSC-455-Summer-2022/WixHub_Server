@@ -68,14 +68,15 @@ var jwt = require('jsonwebtoken');
 */
 router.get('/', function (req, res, next) {
   User.find().then((result) => {
-    res.send(result);
+    res.status(200).send(result);
+  }).catch((err) => {
+    res.status(404).send(err);
   });
-  // res.send(users);
 });
 
 /**
 * @swagger
-* /users/:id:
+* /users/{id}:
 *   get:
 *     summary: Returns specified user according to provided id
 *     tags: [Users]
@@ -88,16 +89,20 @@ router.get('/', function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/User'
+*       404:
+*         description: user not found
 *     parameters:
-*     - name: id
+*     - in: path
+*       name: id
 *       description: user's id
 *       required: true
 *       type: string
+*       example: 62eac685b3af24e5f1d0cc49
 */
 router.get('/:id', function (req, res, next) {
   const userId = req.params.id;
   User.findById(userId).then((result, err) => {
-    res.send(result);
+    res.status(200).send(result);
   }).catch((err) => {
     res.status(404).send(err);
   });
@@ -110,7 +115,7 @@ router.get('/:id', function (req, res, next) {
 *     summary: Adds a single user listing in JSON format to user database
 *     tags: [Users]
 *     responses:
-*       200:
+*       201:
 *         description: adds a new user to the db
 *         content:
 *           application/json:
@@ -118,24 +123,54 @@ router.get('/:id', function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/User'
-*     parameters:
-*     - name: f_name
-*       description: user's first name
+*       400:
+*         description: user could not be added
+*     requestBody:
 *       required: true
-*       type: string
-*     - name: l_name
-*       description: user's last name
-*       required: true
-*       type: string
-*     - name: country
-*       description: user's country
-*       required: true
-*       type: string
-*     - name: question_responses
-*       description: a user's question responses (please enter in array format)
-*       required: false
-*       type: array
+*       description: a new user to add to the user database upon sign up
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             required:
+*             - f_name
+*             - l_name
+*             - country
+*             properties:
+*               f_name:
+*                 description: user's first name
+*                 type: string
+*               l_name:
+*                 description: user's last name
+*                 type: string
+*               country:
+*                 description: user's country of residency
+*                 type: string
+*               question_responses:
+*                 description: a user's question responses (please enter in array format)
+*                 type: array
+*           example:
+*             f_name: Josh
+*             l_name: Tillson
+*             country: Canada
+*             question_responses: ["1","2","3","4","1","2","3","4",]
 */
+
+router.post('/', function (req, res, next) {
+  const user = {
+    f_name: req.body.f_name,
+    l_name: req.body.l_name,
+    country: req.body.country,
+    email: req.body.email,
+    password: req.body.password
+  };
+  User.create(user).then((result) => {
+    res.status(201).send(result);
+  }).catch((err) => {
+    res.status(400).send(err);
+  });
+});
+
 // login user
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
@@ -151,30 +186,15 @@ router.post('/login', async function (req, res, next) {
   } else res.sendStatus(403);
 });
 
-/* Post a single user listing in JSON format (adding it to the list) */
-router.post('/', function (req, res, next) {
-  const user = {
-    f_name: req.body.f_name,
-    l_name: req.body.l_name, 
-    country: req.body.country,
-    email: req.body.email,
-    password: req.body.password
-  };
-  User.create(user).then((result) => {
-    res.status(201).send(result);
-  }).catch((err) => {
-    res.status(400).send(err);
-  });
-});
 
 /**
 * @swagger
-* /users/:id:
+* /users/{id}:
 *   delete:
 *     summary: delete specified user according to provided id
 *     tags: [Users]
 *     responses:
-*       200:
+*       202:
 *         description: a single user based on a given id
 *         content:
 *           application/json:
@@ -182,11 +202,15 @@ router.post('/', function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/User'
+*       404:
+*         description: user not found
 *     parameters:
-*     - name: id
+*     - in: path
+*       name: id
 *       description: user's id
 *       required: true
 *       type: string
+*       example: 62eac685b3af24e5f1d0cc49
 */
 router.delete('/:id', function (req, res) {
   const userId = req.params.id;
@@ -197,22 +221,6 @@ router.delete('/:id', function (req, res) {
   });;
 });
 
-/**
-* @swagger
-* /users:
-*   delete:
-*     summary: deletes all users in db
-*     tags: [Users]
-*     responses:
-*       200:
-*         description: the list of all Users
-*         content:
-*           application/json:
-*             schema:
-*               type: array
-*               items:
-*                 $ref: '#/components/schemas/User'
-*/
 router.delete('/', function (req, res) {
   User.deleteMany({}).then((result1) => {
     User.find().then((result2) => {
@@ -230,7 +238,7 @@ router.delete('/', function (req, res) {
 *     summary: Edits a single user listing in JSON format within user database
 *     tags: [Users]
 *     responses:
-*       200:
+*       203:
 *         description: edits an existing user in the db
 *         content:
 *           application/json:
@@ -238,6 +246,10 @@ router.delete('/', function (req, res) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/User'
+*       404:
+*         description: user not found
+*       400:
+*         description: user could not be edited
 *     parameters:
 *     - name: id
 *       description: user's id
@@ -270,7 +282,7 @@ router.patch('/edit/:id', function (req, res) {
       res.status(404).send(err);
     });
   }).catch((err) => {
-    res.status(404).send(err);
+    res.status(400).send(err);
   });
 });
 
@@ -299,7 +311,5 @@ router.patch('/deleteUserDestination/:id', function (req, res) {
     res.status(404).send(err);
   });
 });
-
-
 
 module.exports.router = router;

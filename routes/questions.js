@@ -61,13 +61,13 @@ const Question = require("../models/questions");
 router.get('/', function (req, res, next) {
     // res.send(questions);
     Question.find().then((result) => {
-        res.send(result);
+        res.status(200).send(result);
     })
 });
 
 /**
 * @swagger
-* /questions/:id:
+* /questions/{id}:
 *   get:
 *     summary: Returns specified question according to provided id
 *     tags: [Questions]
@@ -80,17 +80,21 @@ router.get('/', function (req, res, next) {
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Question'
+*       404: 
+*           description: question not found
 *     parameters:
-*     - name: id
-*       description: questions's id
+*     - in: path
+*       name: id
+*       description: questions's id 
 *       required: true
 *       type: string
+*       example: 62eac685b3af24e5f1d0cca4
 */
 router.get('/:id', function (req, res, next) {
     const questionId = req.params.id;
     Question.findById(questionId).then((result) => {
         if (result) {
-            res.send(result);
+            res.status(200).send(result);
         } else {
             res.status(404).send();
         }
@@ -121,8 +125,53 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *   patch:
 *     summary: provide a destination recommendation based on a series of question answers
 *     tags: [Questions]
+*     requestBody:
+*       description: the user ID and responses to the 8 multiple choice questionnaire required for a recommendation
+*       content:
+*           application/json:
+*               schema:
+*                   type: object
+*                   required:
+*                   - id
+*                   - question1
+*                   - question2
+*                   - question3
+*                   - question4
+*                   - question5
+*                   - question6
+*                   - question7
+*                   - question8
+*                   properties:
+*                   id:
+*                       type: string
+*                   question1:
+*                       type: string
+*                   question2:
+*                       type: string
+*                   question3:
+*                       type: string
+*                   question4:
+*                       type: string
+*                   question5:
+*                       type: string
+*                   question6:
+*                       type: string
+*                   question7:
+*                       type: string
+*                   question8:
+*                       type: string
+*               example:
+*                   id: 62eac685b3af24e5f1d0cc48
+*                   questions1: 1
+*                   questions2: 2
+*                   questions3: 3
+*                   questions4: 4
+*                   questions5: 1
+*                   questions6: 2
+*                   questions7: 3
+*                   questions8: 4
 *     responses:
-*       200:
+*       201:
 *         description: provides a recommendation (returns id of destination)
 *         content:
 *           application/json:
@@ -130,41 +179,10 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
-*     parameters:
-*     - in: body
-*       name: recommendation
-*       description: the info required for a recommendation
-*       schema:
-*         type: object
-*         required:
-*           - id
-*           - question1
-*           - question2
-*           - question3
-*           - question4
-*           - question5
-*           - question6
-*           - question7
-*           - question8
-*         properties:
-*           id:
-*             type: string
-*           question1:
-*             type: string
-*           question2:
-*             type: string
-*           question3:
-*             type: string
-*           question4:
-*             type: string
-*           question5:
-*             type: string
-*           question6:
-*             type: string
-*           question7:
-*             type: string
-*           question8:
-*             type: string
+*       400:
+*           description: recommendation could not be provided
+*       404:
+*           description: user could not be found 
 */
 // provide a destination recommendation based on a series of question answers
 router.patch('/recommendation', function (req, res, next) {
@@ -206,10 +224,10 @@ router.patch('/recommendation', function (req, res, next) {
                     .status(201)
                     .send(recommendedDestination[0]);
             }).catch((err) => {
-                res.status(404).send(err);
+                res.status(400).send(err);
             });
         }).catch((err) => {
-            res.status(404).send(err);
+            res.status(400).send(err);
         });
     }).catch((err) => {
         res.status(404).send(err);
