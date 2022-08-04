@@ -151,20 +151,6 @@ router.post('/login', async function (req, res, next) {
   } else res.sendStatus(403);
 });
 
-// validate token
-// router.all('*'), function (req, res, next) {
-//   const authHeader = req.headers["authorization"];
-//   const token = authHeader && authHeader.split(" ")[1];
-
-//   if (token == null) return res.sendStatus(401);
-
-//   jwt.verify(token, "thisIsAuthorized", (err, decoded) => {
-//     if (err) return res.sendStatus(403);
-//     req.tokenData = decoded;
-//     next();
-//   });
-// };
-
 /* Post a single user listing in JSON format (adding it to the list) */
 router.post('/', function (req, res, next) {
   const user = {
