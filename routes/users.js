@@ -233,13 +233,13 @@ router.delete('/', function (req, res) {
 
 /**
 * @swagger
-* /users:
+* /users/edit/{id}:
 *   patch:
 *     summary: Edits a single user listing in JSON format within user database
 *     tags: [Users]
 *     responses:
 *       203:
-*         description: edits an existing user in the db
+*         description: the updated user
 *         content:
 *           application/json:
 *             schema:
@@ -251,7 +251,8 @@ router.delete('/', function (req, res) {
 *       400:
 *         description: user could not be edited
 *     parameters:
-*     - name: id
+*     - in: path
+*       name: id
 *       description: user's id
 *       required: true
 *       type: string
@@ -282,6 +283,7 @@ router.delete('/', function (req, res) {
 *                 country: Canada
 *                 question_responses: ["1","2","3","4","1","2","3","4",]             
 */
+
 router.patch('/edit/:id', function (req, res) {
   const userId = req.params.id;
   const updatedInfo = req.body;
@@ -296,6 +298,48 @@ router.patch('/edit/:id', function (req, res) {
   });
 });
 
+/**
+* @swagger
+* /users/deleteUserDestination/{id}:
+*   patch:
+*     summary: deletes a single recommended destination from a users destination list
+*     tags: [Users]
+*     responses:
+*       203:
+*         description: the updated user
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               items:
+*                 $ref: '#/components/schemas/User'
+*       404:
+*         description: user not found
+*       400:
+*         description: user could not be edited
+*     parameters:
+*     - in: path
+*       name: id
+*       description: user's id
+*       required: true
+*       type: string
+*       example: 62eac685b3af24e5f1d0cc48
+*     requestBody:
+*       required: true
+*       description: the user destination to be removed
+*       content:
+*           application/json:
+*               schema:
+*                   type: object
+*                   required:
+*                     - destinationToDelete
+*                   properties:
+*                     destinationToDelete:
+*                       description: the destinationID for the destination to be deleted
+*                       type: string
+*               example: 
+*                   destinationToDelete: 1        
+*/
 router.patch('/deleteUserDestination/:id', function (req, res) {
   const userId = req.params.id;
   const destinationToDelete = req.query.destinationToDelete;
