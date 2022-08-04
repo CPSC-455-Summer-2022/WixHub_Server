@@ -61,24 +61,25 @@ router.get('/', function (req, res, next) {
 
 /**
 * @swagger
-* /destinations/:id:
+* /destinations/{id}:
 *   get:
 *     summary: Returns specified destination according to provided id
 *     tags: [Destinations]
+*     parameters:
+*     - in: path
+*       name: id
+*       description: destinations's id (try '62eac685b3af24e5f1d0cc6d')
+*       required: true
+*       type: string
 *     responses:
 *       200:
-*         description: a single destination based on a given id
+*         description: a single destination based on a given MongoDB id 
 *         content:
 *           application/json:
 *             schema:
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
-*     parameters:
-*     - name: id
-*       description: destinations's id
-*       required: true
-*       type: string
 */
 router.get("/:id", function (req, res, next) {
     const destinationId = req.params.id;
@@ -91,24 +92,25 @@ router.get("/:id", function (req, res, next) {
 
 /**
 * @swagger
-* /destinations/destinationID/:id:
+* /destinations/destinationID/{id}:
 *   get:
-*     summary: Returns specified destination according to provided destinationID
+*     summary: Returns specified destination according to provided destinationID 
 *     tags: [Destinations]
+*     parameters:
+*     - in: path
+*       name: id
+*       description: destinations's id
+*       required: true
+*       type: string
 *     responses:
 *       200:
-*         description: a single destination based on a given destinationID
+*         description: a single destination based on a given destinationID (different from above because it's the id returned by recommendation engine)
 *         content:
 *           application/json:
 *             schema:
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
-*     parameters:
-*     - name: destinationID
-*       description: destinations's id
-*       required: true
-*       type: string
 */
 router.get("/destinationID/:id", function (req, res, next) {
     const destinationId = req.params.id;
