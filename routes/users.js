@@ -234,7 +234,7 @@ router.delete('/', function (req, res) {
 /**
 * @swagger
 * /users:
-*   put:
+*   patch:
 *     summary: Edits a single user listing in JSON format within user database
 *     tags: [Users]
 *     responses:
@@ -255,22 +255,32 @@ router.delete('/', function (req, res) {
 *       description: user's id
 *       required: true
 *       type: string
-*     - name: f_name
-*       description: user's first name
+*       example: 62eac685b3af24e5f1d0cc48
+*     requestBody:
 *       required: true
-*       type: string
-*     - name: l_name
-*       description: user's last name
-*       required: true
-*       type: string
-*     - name: country
-*       description: user's country
-*       required: true
-*       type: string
-*     - name: question_responses
-*       description: a user's question responses (please enter in array format)
-*       required: false
-*       type: array
+*       description: the user information to be updated
+*       content:
+*           application/json:
+*               schema:
+*                   type: object
+*                   properties:
+*                     f_name:
+*                       description: user's first name
+*                       type: string              
+*                     l_name:
+*                       description: user's last name
+*                       type: string              
+*                     country:
+*                       description: user's country
+*                       type: string              
+*                     question_responses:
+*                       description: user's question responses (please enter in array format)
+*                       type: array 
+*               example: 
+*                 f_name: Josh
+*                 l_name: Tillson
+*                 country: Canada
+*                 question_responses: ["1","2","3","4","1","2","3","4",]             
 */
 router.patch('/edit/:id', function (req, res) {
   const userId = req.params.id;
