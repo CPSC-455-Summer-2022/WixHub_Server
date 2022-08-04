@@ -135,7 +135,7 @@ const initializeDestinations = async function () {
     await Destination.insertMany([
         {
             "destinationId": 1, "city": "Vancouver", "country": "Canada", "description": "Vancouver (/vænˈkuːvər/ (listen) van-KOO-vər) is a major city in western Canada, located in the Lower Mainland region of British Columbia. As the most populous city in the province, the 2021 census recorded 662,248 people in the city, up from 631,486 in 2016. The Greater Vancouver area had a population of 2.6 million in 2021, making it the third-largest metropolitan area in Canada. Vancouver has the highest population density in Canada, with over 5,400 people per square kilometre. Vancouver is one of the most ethnically and linguistically diverse cities in Canada: 52 percent of its residents are not native English speakers, 48.9 percent are native speakers of neither English nor French, and 50.6 percent of residents belong to visible minority groups.",
-            "image": "https://a.cdn-hotels.com/gdcs/production114/d115/5a3ff7e3-3997-4ccb-8415-00f3302f2d3f.jpg",
+            "image": "https://images.unsplash.com/photo-1578961509811-1f55a380e31f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1OTU4Mjk2NA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Granville Island",
@@ -170,8 +170,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 2, "city": "London", "country": "England", "description": "London is the capital and largest city of England and the United Kingdom, with a population of just over 9 million.[9] It stands on the River Thames in south-east England at the head of a 50-mile (80 km) estuary down to the North Sea, and has been a major settlement for two millennia. The City of London, its ancient core and financial centre, was founded by the Romans as Londinium and retains boundaries close to its medieval ones. Since the 19th century, the name \"London\" has also referred to the metropolis around this core, historically split between the counties of Middlesex, Essex, Surrey, Kent, and Hertfordshire, which largely comprises Greater London, governed by the Greater London Authority. The City of Westminster, to the west of the City of London, has for centuries held the national government and parliament.",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Tower_Bridge_at_Dawn.jpg/440px-Tower_Bridge_at_Dawn.jpg",
+            "destinationId": 2, "city": "London", "country": "England", "description": "London is the capital and largest city of England and the United Kingdom, with a population of just over 9 million. It stands on the River Thames in south-east England at the head of a 50-mile (80 km) estuary down to the North Sea, and has been a major settlement for two millennia. The City of London, its ancient core and financial centre, was founded by the Romans as Londinium and retains boundaries close to its medieval ones. Since the 19th century, the name \"London\" has also referred to the metropolis around this core, historically split between the counties of Middlesex, Essex, Surrey, Kent, and Hertfordshire, which largely comprises Greater London, governed by the Greater London Authority. The City of Westminster, to the west of the City of London, has for centuries held the national government and parliament.",
+            "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzNTkxNDYwMQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Tower of London",
@@ -207,7 +207,7 @@ const initializeDestinations = async function () {
         },
         {
             "destinationId": 3, "city": "Amsterdam", "country": "Netherlands", "description": "Amsterdam (/ˈæmstərdæm/ AM-stər-dam, UK also /ˌæmstərˈdæm/ AM-stər-DAM, Dutch: [ˌɑmstərˈdɑm] (listen), lit. The Dam on the River Amstel) is the capital and most populous city of the Netherlands; with a population of 907,976 within the city proper, 1,558,755 in the urban area and 2,480,394 in the metropolitan area. Found within the Dutch province of North Holland, Amsterdam is colloquially referred to as the \"Venice of the North\", due to the large number of canals which form a UNESCO World Heritage Site.",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Amsterdam_-_Rijksmuseum_-_panoramio_-_Nikolai_Karaneschev.jpg/540px-Amsterdam_-_Rijksmuseum_-_panoramio_-_Nikolai_Karaneschev.jpg",
+            "image": "https://images.unsplash.com/photo-1576924542622-772281b13aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1OTU4MzI5Mw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Rijksmuseum",
@@ -243,7 +243,7 @@ const initializeDestinations = async function () {
         },
         {
             "destinationId": 4, "city": "Dubai", "country": "United Arab Emirates", "description": "Dubai (/duːˈbaɪ/, doo-BY; Arabic: دبي, romanized: Dubayy, IPA: [dʊˈbajj], Gulf Arabic pronunciation: [dəˈbaj]) is the most populous city in the United Arab Emirates (UAE) and the capital of the Emirate of Dubai. Established in the 18th century as a small fishing village, the city grew rapidly in the early 21st century with a focus on tourism and hospitality, having the second most five-star hotels in the world, and the tallest building in the world, the Burj Khalifa.",
-            "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
             "activityRecommendations": [
                 {
                     "activityName": "Burj Khalifa",
@@ -278,7 +278,7 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 6, "city": "Bali", "country": "Indonesia", "description": "Bali (/ˈbɑːli/; Balinese: ᬩᬮᬶ) is a province of Indonesia and the westernmost of the Lesser Sunda Islands. East of Java and west of Lombok, the province includes the island of Bali and a few smaller neighbouring islands, notably Nusa Penida, Nusa Lembongan, and Nusa Ceningan. The provincial capital, Denpasar,[7] is the most populous city in the Lesser Sunda Islands and the second-largest, after Makassar, in Eastern Indonesia. The upland town of Ubud in Greater Denpasar is considered Bali's cultural centre. The province is Indonesia's main tourist destination, with a significant rise in tourism since the 1980s.[8] Tourism-related business makes up 80% of its economy.",
+            "destinationId": 6, "city": "Bali", "country": "Indonesia", "description": "Bali (/ˈbɑːli/; Balinese: ᬩᬮᬶ) is a province of Indonesia and the westernmost of the Lesser Sunda Islands. East of Java and west of Lombok, the province includes the island of Bali and a few smaller neighbouring islands, notably Nusa Penida, Nusa Lembongan, and Nusa Ceningan. The provincial capital, Denpasar, is the most populous city in the Lesser Sunda Islands and the second-largest, after Makassar, in Eastern Indonesia. The upland town of Ubud in Greater Denpasar is considered Bali's cultural centre. The province is Indonesia's main tourist destination, with a significant rise in tourism since the 1980s. Tourism-related business makes up 80% of its economy.",
             "image": "https://images.unsplash.com/photo-1604999333679-b86d54738315?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80",
             "activityRecommendations": [
                 {
@@ -314,8 +314,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 8, "city": "Cabo San Lucas", "country": "Mexico", "description": "Cabo San Lucas (Spanish pronunciation: [ˈkaβo san ˈlukas], \"Saint Luke Cape\"), or simply Cabo, is a resort city at the southern tip of the Baja California Peninsula, in the Mexican state of Baja California Sur. As at the 2020 Census, the population of the city was 202,694 inhabitants.[1][2] Cabo San Lucas together with San José del Cabo are collectively known as Los Cabos. Together, they form a metropolitan area of 351,111 inhabitants.",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFwqNfskhOhKZHALogc3qokKwceZzQFg90DA&usqp=CAU",
+            "destinationId": 8, "city": "Cabo San Lucas", "country": "Mexico", "description": "Cabo San Lucas (Spanish pronunciation: [ˈkaβo san ˈlukas], \"Saint Luke Cape\"), or simply Cabo, is a resort city at the southern tip of the Baja California Peninsula, in the Mexican state of Baja California Sur. As at the 2020 Census, the population of the city was 202,694 inhabitants. Cabo San Lucas together with San José del Cabo are collectively known as Los Cabos. Together, they form a metropolitan area of 351,111 inhabitants.",
+            "image": "https://images.unsplash.com/photo-1597244586456-1044325c5ce4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1OTU4MzkzMw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "El Arco de Cabo San Lucas",
@@ -350,8 +350,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 9, "city": "Paris", "country": "France", "description": "Paris (French pronunciation: ​[paʁi] (listen)) is the capital and most populous city of France, with an estimated population of 2,165,423 residents in 2019 in an area of more than 105 km² (41 sq mi),[4] making it the 34th most densely populated city in the world in 2020.[5] Since the 17th century, Paris has been one of the world's major centres of finance, diplomacy, commerce, fashion, gastronomy, science, and arts, and has sometimes been referred to as the capital of the world. The City of Paris is the centre of the region and province of Île-de-France, or Paris Region, with an estimated population of 12 262 544 in 2019, or about 19% of the population of France.[6] The Paris Region had a GDP of €739 billion ($743 billion) in 2019, which is the highest of Europe.[7] According to the Economist Intelligence Unit Worldwide Cost of Living Survey, in 2021 Paris was the city with the second-highest cost of living in the world, tied with Singapore, and after Tel Aviv.",
-            "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+            "destinationId": 9, "city": "Paris", "country": "France", "description": "Paris (French pronunciation: ​[paʁi] (listen)) is the capital and most populous city of France, with an estimated population of 2,165,423 residents in 2019 in an area of more than 105 km² (41 sq mi), making it the 34th most densely populated city in the world in 2020. Since the 17th century, Paris has been one of the world's major centres of finance, diplomacy, commerce, fashion, gastronomy, science, and arts, and has sometimes been referred to as the capital of the world. The City of Paris is the centre of the region and province of Île-de-France, or Paris Region, with an estimated population of 12 262 544 in 2019, or about 19% of the population of France. The Paris Region had a GDP of €739 billion ($743 billion) in 2019, which is the highest of Europe. According to the Economist Intelligence Unit Worldwide Cost of Living Survey, in 2021 Paris was the city with the second-highest cost of living in the world, tied with Singapore, and after Tel Aviv.",
+            "image": "https://images.unsplash.com/photo-1550340499-a6c60fc8287c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzMzc0MTE5Ng&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Musée d'Orsay",
@@ -386,8 +386,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 10, "city": "Oslo", "country": "Norway", "description": "Oslo (/ˈɒzloʊ/ OZ-loh, US also /ˈɒsloʊ/ OSS-loh,[10][11] Norwegian: [ˈʊ̂ʂlʊ ] (listen) or [ˈʊ̂slʊ, ˈʊ̀ʂlʊ]) is the capital and most populous city of Norway. It constitutes both a county and a municipality. The municipality of Oslo had a population of 702,543 in 2022, while the city's greater urban area had a population of 1,019,513 in 2019,[12][13] and the metropolitan area had an estimated population of 1.71 million in 2010.",
-            "image": "https://images.unsplash.com/photo-1613567993548-b3a0d9abb736?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1341&q=80",
+            "destinationId": 10, "city": "Oslo", "country": "Norway", "description": "Oslo (/ˈɒzloʊ/ OZ-loh, US also /ˈɒsloʊ/ OSS-loh, Norwegian: [ˈʊ̂ʂlʊ ] (listen) or [ˈʊ̂slʊ, ˈʊ̀ʂlʊ]) is the capital and most populous city of Norway. It constitutes both a county and a municipality. The municipality of Oslo had a population of 702,543 in 2022, while the city's greater urban area had a population of 1,019,513 in 2019, and the metropolitan area had an estimated population of 1.71 million in 2010.",
+            "image": "https://images.unsplash.com/photo-1560698862-c340d3c8bf38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1OTU4NDEzOA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Fram Museum",
@@ -422,8 +422,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 11, "city": "Rome", "country": "Italy", "description": "Rome (Italian and Latin: Roma [ˈroːma] (listen)) is the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome, and a special comune named Comune di Roma Capitale. With 2,860,009 residents in 1,285 km2 (496.1 sq mi),[1] Rome is the country's most populated comune and the third most populous city in the European Union by population within city limits. The Metropolitan City of Rome, with a population of 4,355,725 residents, is the most populous metropolitan city in Italy.[2] Its metropolitan area is the third-most populous within Italy.[3] Rome is located in the central-western portion of the Italian Peninsula, within Lazio (Latium), along the shores of the Tiber. Vatican City (the smallest country in the world)[4] is an independent country inside the city boundaries of Rome, the only existing example of a country within a city. Rome is often referred to as the City of Seven Hills due to its geographic location, and also as the \"Eternal City\".[5] Rome is generally considered to be the \"cradle of Western civilization and Christian culture\", and the centre of the Catholic Church.",
-            "image": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
+            "destinationId": 11, "city": "Rome", "country": "Italy", "description": "Rome (Italian and Latin: Roma [ˈroːma] (listen)) is the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome, and a special comune named Comune di Roma Capitale. With 2,860,009 residents in 1,285 km2 (496.1 sq mi), Rome is the country's most populated comune and the third most populous city in the European Union by population within city limits. The Metropolitan City of Rome, with a population of 4,355,725 residents, is the most populous metropolitan city in Italy. Its metropolitan area is the third-most populous within Italy. Rome is located in the central-western portion of the Italian Peninsula, within Lazio (Latium), along the shores of the Tiber. Vatican City (the smallest country in the world) is an independent country inside the city boundaries of Rome, the only existing example of a country within a city. Rome is often referred to as the City of Seven Hills due to its geographic location, and also as the \"Eternal City\". Rome is generally considered to be the \"cradle of Western civilization and Christian culture\", and the centre of the Catholic Church.",
+            "image": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
             "activityRecommendations": [
                 {
                     "activityName": "Pantheon",
@@ -458,8 +458,8 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 12, "city": "New York", "country": "United States", "description": "New York, often called New York City (NYC) to distinguish it from the State of New York, is the most populous city in the United States. With a 2020 population of 8,804,190 distributed over 300.46 square miles (778.2 km2), New York City is also the most densely populated major city in the United States. Located at the southern tip of the state of New York, the city is the center of the New York metropolitan area, the largest metropolitan area in the world by urban landmass.[9] With over 20.1 million people in its metropolitan statistical area and 23.5 million in its combined statistical area as of 2020, New York is one of the world's most populous megacities. New York City is a global cultural, financial, and media center with a significant influence on commerce, entertainment, research, technology,[10] education, politics, tourism, dining, art, fashion, and sports. New York is the most photographed city in the world.[11] Home to the headquarters of the United Nations, New York is an important center for international diplomacy,[12][13] an established safe haven for global investors,[14] and is sometimes described as the capital of the world.",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPazUBc0TPKLzjzDOWTUZhm3Lku7_yGMt_w&usqp=CAU",
+            "destinationId": 12, "city": "New York", "country": "United States", "description": "New York, often called New York City (NYC) to distinguish it from the State of New York, is the most populous city in the United States. With a 2020 population of 8,804,190 distributed over 300.46 square miles (778.2 km2), New York City is also the most densely populated major city in the United States. Located at the southern tip of the state of New York, the city is the center of the New York metropolitan area, the largest metropolitan area in the world by urban landmass. With over 20.1 million people in its metropolitan statistical area and 23.5 million in its combined statistical area as of 2020, New York is one of the world's most populous megacities. New York City is a global cultural, financial, and media center with a significant influence on commerce, entertainment, research, technology, education, politics, tourism, dining, art, fashion, and sports. New York is the most photographed city in the world. Home to the headquarters of the United Nations, New York is an important center for international diplomacy, an established safe haven for global investors, and is sometimes described as the capital of the world.",
+            "image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
             "activityRecommendations": [
                 {
                     "activityName": "The National 9/11 Memorial & Museum",
@@ -494,7 +494,7 @@ const initializeDestinations = async function () {
             ]
         },
         {
-            "destinationId": 13, "city": "Kyushi", "country": "Japan", "description": "Kyushu (九州, Kyūshū, pronounced [kʲɯꜜːɕɯː] (listen), literally \"Nine Provinces\") is the third-largest island of Japan's five main islands and the most southerly of the four largest islands (i.e. excluding Okinawa).[3][4] In the past, it has been known as Kyūkoku (九国, \"Nine Countries\"), Chinzei (鎮西, \"West of the Pacified Area\") and Tsukushi-no-shima (筑紫島, \"Island of Tsukushi\"). The historical regional name Saikaidō (西海道, lit. West Sea Circuit) referred to Kyushu and its surrounding islands. Kyushu has a land area of 36,782 square kilometres (14,202 sq mi) and a population of 14,311,224 in 2018.",
+            "destinationId": 13, "city": "Kyushi", "country": "Japan", "description": "Kyushu (九州, Kyūshū, pronounced [kʲɯꜜːɕɯː] (listen), literally \"Nine Provinces\") is the third-largest island of Japan's five main islands and the most southerly of the four largest islands (i.e. excluding Okinawa). In the past, it has been known as Kyūkoku (九国, \"Nine Countries\"), Chinzei (鎮西, \"West of the Pacified Area\") and Tsukushi-no-shima (筑紫島, \"Island of Tsukushi\"). The historical regional name Saikaidō (西海道, lit. West Sea Circuit) referred to Kyushu and its surrounding islands. Kyushu has a land area of 36,782 square kilometres (14,202 sq mi) and a population of 14,311,224 in 2018.",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfYy1KMtzIc2KgbK02Jr4azCfcjJQ6HtXWxQ&usqp=CAU",
             "activityRecommendations": [
                 {
@@ -531,7 +531,7 @@ const initializeDestinations = async function () {
         },
         {
             "destinationId": 14, "city": "Singapore", "country": "Singapore", "description": "Singapore (/ˈsɪŋ(ɡ)əpɔːr/ (listen)), officially the Republic of Singapore, is a sovereign island country and city-state in maritime Southeast Asia. It lies about one degree of latitude (137 kilometres or 85 miles) north of the equator, off the southern tip of the Malay Peninsula, bordering the Strait of Malacca to the west, the Singapore Strait to the south, the South China Sea to the east and the Straits of Johor to the north. The country's territory is composed of one main island, 63 satellite islands and islets, and one outlying islet, the combined area of which has increased by 25% since the country's independence as a result of extensive land reclamation projects. It has the third highest population density in the world. With a multicultural population and recognising the need to respect cultural identities of the major ethnic groups within the nation, Singapore has four official languages; English, Malay, Mandarin, and Tamil. English is the lingua franca and numerous public services are available only in English. Multiracialism is enshrined in the constitution and continues to shape national policies in education, housing, and politics.",
-            "image": "https://images.unsplash.com/photo-1496939376851-89342e90adcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "image": "https://images.unsplash.com/photo-1542114740389-9b46fb1e5be7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1OTU4NDQ5Nw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
             "activityRecommendations": [
                 {
                     "activityName": "Gardens by the Bay",
@@ -575,7 +575,7 @@ const initializeUsers = async function () {
             "f_name": "Josh",
             "l_name": "Tillson",
             "country": "Canada",
-            "destinations": ["1"],
+            "destinations": ["1", "5"],
             "question_responses": [1, 2, 3, 4, 1, 2, 3, 4],
             "email": "josh@tillson.com",
             "password": "1234password"
