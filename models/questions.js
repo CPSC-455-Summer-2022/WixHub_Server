@@ -28,6 +28,10 @@ const QuestionSchema = new Schema({
         type: String,
         require: true
     },
+    questionImage: {
+        type: String,
+        require: true
+    },
     destinationMapping: [
         {
             type: destinationMappingSchema

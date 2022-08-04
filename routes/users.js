@@ -283,7 +283,35 @@ router.patch('/edit/:id', function (req, res) {
     });
   }).catch((err) => {
     res.status(404).send(err);
-  });;
+  });
 });
+
+router.patch('/deleteUserDestination/:id', function (req, res) {
+  const userId = req.params.id;
+  const destinationToDelete = req.query.destinationToDelete;
+  User.findById(userId).then((user) => {
+    let userDests = user.destinations;
+    let newUserDests = [];
+    for (const dest of userDests) {
+      if (dest !== destinationToDelete) {
+        newUserDests.push(dest);
+      }
+    }
+    const updatedInfo = { "destinations": newUserDests }
+    User.findByIdAndUpdate(userId, updatedInfo).then(() => {
+      User.findById(userId).then((result) => {
+        res.status(203).send(result);
+      }).catch((err) => {
+        res.status(404).send(err);
+      });
+    }).catch((err) => {
+      res.status(404).send(err);
+    });
+  }).catch((err) => {
+    res.status(404).send(err);
+  });
+});
+
+
 
 module.exports.router = router;
