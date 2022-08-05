@@ -29,12 +29,23 @@ const Destination = require("../models/destinations");
  *         country:
  *           type: string
  *           description: the name of the country
+ *         description:
+ *           type: string
+ *           description: description of the destination
+ *         image:
+ *           type: string
+ *           description: image corresponding to that destination
+ *         activityRecommendations:
+ *           type: array
+ *           description: top 5 actvities for that destination
  *       example:
  *         id: 1
- *         city: "Toronto"
- *         country: "Canada"
- */
-
+ *         city: Toronto
+ *         country: Canada
+ *         description: The capital of Ontario and home to the CN Tower + the Raptors
+ *         image: https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80
+ *         activityRecommendations: []
+*/
 /**
 * @swagger
 * /destinations:

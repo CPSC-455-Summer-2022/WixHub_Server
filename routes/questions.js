@@ -35,11 +35,15 @@ const Question = require("../models/questions");
  *           description: question asked
  *         destinationMapping:
  *           type: array
- *           description: last name of usert
+ *           description: the way each response to the question can be mapped to a destination recommendation
+ *         questionImage:
+ *           type: string
+ *           description: a url to an image associated with the given question
  *       example:
  *         id: 1
- *         question: "who am I"
+ *         question: who am I
  *         destination_mapping: [{ "response": 1, "destination": 12, "weighting": 4 }, { "response": 2, "destination": 6, "weighting": 6 }, { "response": 3, "destination": 4, "weighting": 8 }, { "response": 4, "destination": 9, "weighting": 5 }]
+ *         questionImage: https://images.unsplash.com/photo-1566740013712-556707c2aada?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80
  */
 
 /**

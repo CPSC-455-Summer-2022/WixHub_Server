@@ -39,12 +39,20 @@ const User = require("../models/users");
  *         question_responses:
  *           type: array
  *           descripton: users question responeses
+ *         email:
+ *           type: string
+ *           descripton: user's email (used to login)
+ *         password:
+ *           type: string
+ *           descripton: user's password (used to login)
  *       example:
  *         id: 1
  *         rname: josh
  *         lname: tillson
  *         country: canada
  *         question_responses: [1,1,1,1,1,1,1,1]
+ *         email: josh@tillson.com
+ *         password: 1234password
  */
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
