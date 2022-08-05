@@ -70,7 +70,7 @@ router.get('/', function (req, res, next) {
 *       description: destinations's id
 *       required: true
 *       type: string
-*       example: 62eac685b3af24e5f1d0cc6d
+*       example: 62ec8e3efccf63a08d40230c
 *     responses:
 *       200:
 *         description: a single destination based on a given MongoDB id 

@@ -97,7 +97,7 @@ router.get('/', function (req, res, next) {
 *       description: user's id
 *       required: true
 *       type: string
-*       example: 62eac685b3af24e5f1d0cc49
+*       example: 62ec8e3dfccf63a08d402305
 */
 router.get('/:id', function (req, res, next) {
   const userId = req.params.id;
@@ -210,7 +210,7 @@ router.post('/login', async function (req, res, next) {
 *       description: user's id
 *       required: true
 *       type: string
-*       example: 62eac685b3af24e5f1d0cc49
+*       example: 62ec8e3dfccf63a08d402305
 */
 router.delete('/:id', function (req, res) {
   const userId = req.params.id;
@@ -256,7 +256,7 @@ router.delete('/', function (req, res) {
 *       description: user's id
 *       required: true
 *       type: string
-*       example: 62eac685b3af24e5f1d0cc48
+*       example: 62ec8e3dfccf63a08d402305
 *     requestBody:
 *       required: true
 *       description: the user information to be updated
@@ -323,7 +323,7 @@ router.patch('/edit/:id', function (req, res) {
 *       description: user's id
 *       required: true
 *       type: string
-*       example: 62eac685b3af24e5f1d0cc48
+*       example: 62ec8e3dfccf63a08d402305
 *     requestBody:
 *       required: true
 *       description: the user destination to be removed
