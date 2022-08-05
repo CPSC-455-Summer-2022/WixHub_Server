@@ -1,6 +1,8 @@
 var { generateAccessToken } = require("../util/genToken");
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
+router.use(cors());
 var { v4: uuid } = require('uuid');
 const User = require("../models/users");
 /**

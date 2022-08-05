@@ -2,6 +2,8 @@ const User = require("../models/users");
 const Destination = require("../models/destinations");
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
+router.use(cors());
 var { v4: uuid } = require('uuid');
 const Question = require("../models/questions");
 
@@ -238,4 +240,4 @@ router.patch('/recommendation', function (req, res, next) {
     });
 });
 
-module.exports = router;
+module.exports.router = router;

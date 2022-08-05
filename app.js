@@ -37,7 +37,7 @@ var app = express();
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
-app.use(cors())
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -47,6 +47,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter.router);
 app.use('/destinations', destinationsRouter.router);
-app.use('/questions', questionsRouter);
+app.use('/questions', questionsRouter.router);
 
 module.exports = app;
