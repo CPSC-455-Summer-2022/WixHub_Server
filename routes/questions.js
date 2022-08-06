@@ -94,7 +94,7 @@ router.get('/', function (req, res, next) {
 *       description: questions's id 
 *       required: true
 *       type: string
-*       example: 62edbc6155615e5af08cb26a
+*       example: 62eedab8074703dd579206c4
 */
 router.get('/:id', function (req, res, next) {
     const questionId = req.params.id;
@@ -151,31 +151,31 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *                   id:
 *                       type: string
 *                   "What type of traveller are you?":
-*                       type: string
+*                       type: object
 *                   "Who are you travelling with?":
-*                       type: string
+*                       type: object
 *                   "How long do you want to travel for?":
-*                       type: string
+*                       type: object
 *                   "Which activity do you like most?":
-*                       type: string
+*                       type: object
 *                   "Which food are you most likely to try?":
-*                       type: string
+*                       type: object
 *                   "What type of footwear defines you?":
-*                       type: string
+*                       type: object
 *                   "What's your favourite aspect of a holiday?":
-*                       type: string
+*                       type: object
 *                   "Which three words best describe your ideal vacation?":
-*                       type: string
+*                       type: object
 *               example:
-*                   id: 62edbc6055615e5af08cb214
-*                   "What type of traveller are you?": 1
-*                   "Who are you travelling with?": 2
-*                   "How long do you want to travel for?": 3
-*                   "Which activity do you like most?": 4
-*                   "Which food are you most likely to try?": 1
-*                   "What type of footwear defines you?": 2
-*                   "What's your favourite aspect of a holiday?": 3
-*                   "Which three words best describe your ideal vacation?": 4
+*                   id: 62eedab8074703dd57920672
+*                   "What type of traveller are you?": { response: "I like to go with the flow", responseNumber: "1" }
+*                   "Who are you travelling with?": { response: "Friends", responseNumber: "2" }
+*                   "How long do you want to travel for?": { response: "Two weeks", responseNumber: "3" }
+*                   "Which activity do you like most?": { response: "Sunbathe on the beach", responseNumber: "4" }
+*                   "Which food are you most likely to try?": { response: "Anything sweet", responseNumber: "1" }
+*                   "What type of footwear defines you?": { response: "Leather dress shoes", responseNumber: "2" }
+*                   "What's your favourite aspect of a holiday?": { response: "Exploring nature", responseNumber: "3"}
+*                   "Which three words best describe your ideal vacation?": { response: "Educational, cultural and amusing", responseNumber: "4"}
 *     responses:
 *       201:
 *         description: provides a recommendation (returns id of destination)
@@ -197,15 +197,14 @@ router.patch('/recommendation', function (req, res, next) {
         let userDests = user.destinations;
 
         let destinationsScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        destinationsScore = switchHelper(req.body["What type of traveller are you?"], destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
-        destinationsScore = switchHelper(req.body["Who are you travelling with?"], destinationsScore, 1, 4, 9, 3, 6, 9, 7, 4);
-        destinationsScore = switchHelper(req.body["How long do you want to travel for?"], destinationsScore, 8, 6, 13, 14, 3, 6, 8, 7);
-        destinationsScore = switchHelper(req.body["Which activity do you like most?"], destinationsScore, 2, 11, 6, 8, 5, 8, 4, 8);
-        destinationsScore = switchHelper(req.body["Which food are you most likely to try?"], destinationsScore, 2, 3, 6, 12, 6, 6, 8, 5);
-        destinationsScore = switchHelper(req.body["What type of footwear defines you?"], destinationsScore, 4, 12, 10, 8, 6, 9, 7, 5);
-        destinationsScore = switchHelper(req.body["What's your favourite aspect of a holiday?"], destinationsScore, 13, 9, 1, 8, 6, 6, 8, 5);
-        destinationsScore = switchHelper(req.body["Which three words best describe your ideal vacation?"], destinationsScore, 12, 6, 4, 9, 4, 6, 8, 5);
-
+        destinationsScore = switchHelper(req.body["What type of traveller are you?"].responseNumber, destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["Who are you travelling with?"].responseNumber, destinationsScore, 1, 4, 9, 3, 6, 9, 7, 4);
+        destinationsScore = switchHelper(req.body["How long do you want to travel for?"].responseNumber, destinationsScore, 8, 6, 13, 14, 3, 6, 8, 7);
+        destinationsScore = switchHelper(req.body["Which activity do you like most?"].responseNumber, destinationsScore, 2, 11, 6, 8, 5, 8, 4, 8);
+        destinationsScore = switchHelper(req.body["Which food are you most likely to try?"].responseNumber, destinationsScore, 2, 3, 6, 12, 6, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["What type of footwear defines you?"].responseNumber, destinationsScore, 4, 12, 10, 8, 6, 9, 7, 5);
+        destinationsScore = switchHelper(req.body["What's your favourite aspect of a holiday?"].responseNumber, destinationsScore, 13, 9, 1, 8, 6, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["Which three words best describe your ideal vacation?"].responseNumber, destinationsScore, 12, 6, 4, 9, 4, 6, 8, 5);
 
         let maxVal = 0;
         let maxIndex = 0;
@@ -217,7 +216,6 @@ router.patch('/recommendation', function (req, res, next) {
         }
         maxIndex = maxIndex + 1;
         userDests.push(maxIndex);
-
         const set = new Set(userDests);
         userDests = [...set];
 
