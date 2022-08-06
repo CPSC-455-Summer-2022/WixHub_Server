@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
+router.use(cors());
 const Destination = require("../models/destinations");
 
 /**
@@ -29,12 +31,23 @@ const Destination = require("../models/destinations");
  *         country:
  *           type: string
  *           description: the name of the country
+ *         description:
+ *           type: string
+ *           description: description of the destination
+ *         image:
+ *           type: string
+ *           description: image corresponding to that destination
+ *         activityRecommendations:
+ *           type: array
+ *           description: top 5 actvities for that destination
  *       example:
  *         id: 1
- *         city: "Toronto"
- *         country: "Canada"
- */
-
+ *         city: Toronto
+ *         country: Canada
+ *         description: The capital of Ontario and home to the CN Tower + the Raptors
+ *         image: https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80
+ *         activityRecommendations: []
+*/
 /**
 * @swagger
 * /destinations:
@@ -52,7 +65,6 @@ const Destination = require("../models/destinations");
 *                 $ref: '#/components/schemas/Destination'
 */
 router.get('/', function (req, res, next) {
-    //res.send(destinations);
     Destination.find().then((result) => {
         res.send(result);
     });
@@ -61,29 +73,33 @@ router.get('/', function (req, res, next) {
 
 /**
 * @swagger
-* /destinations/:id:
+* /destinations/{id}:
 *   get:
 *     summary: Returns specified destination according to provided id
 *     tags: [Destinations]
+*     parameters:
+*     - in: path
+*       name: id
+*       description: destinations's id
+*       required: true
+*       type: string
+*       example: 62eedab8074703dd57920679
 *     responses:
 *       200:
-*         description: a single destination based on a given id
+*         description: a single destination based on a given MongoDB id 
 *         content:
 *           application/json:
 *             schema:
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
-*     parameters:
-*     - name: id
-*       description: destinations's id
-*       required: true
-*       type: string
+*       404:
+*         description: destination could not be found 
 */
 router.get("/:id", function (req, res, next) {
     const destinationId = req.params.id;
     Destination.findById(destinationId).then((result) => {
-        res.send(result);
+        res.status(200).send(result);
     }).catch((err) => {
         res.status(404).send(err);
     });
@@ -91,29 +107,33 @@ router.get("/:id", function (req, res, next) {
 
 /**
 * @swagger
-* /destinations/destinationID/:id:
+* /destinations/destinationID/{id}:
 *   get:
-*     summary: Returns specified destination according to provided destinationID
+*     summary: Returns specified destination according to provided destinationID 
 *     tags: [Destinations]
+*     parameters:
+*     - in: path
+*       name: id
+*       description: destinations's id
+*       required: true
+*       type: string
+*       example: 1
 *     responses:
 *       200:
-*         description: a single destination based on a given destinationID
+*         description: a single destination based on a given destinationID (different from above because it's the id returned by recommendation engine)
 *         content:
 *           application/json:
 *             schema:
 *               type: object
 *               items:
 *                 $ref: '#/components/schemas/Destination'
-*     parameters:
-*     - name: destinationID
-*       description: destinations's id
-*       required: true
-*       type: string
+*       404:
+*         description: destination could not be found 
 */
 router.get("/destinationID/:id", function (req, res, next) {
     const destinationId = req.params.id;
     Destination.find({ destinationId: destinationId }).then((result) => {
-        res.send(result[0]);
+        res.status(200).send(result[0]);
     }).catch((err) => {
         res.status(404).send(err);
     });;
