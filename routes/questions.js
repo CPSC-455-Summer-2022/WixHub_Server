@@ -94,7 +94,7 @@ router.get('/', function (req, res, next) {
 *       description: questions's id 
 *       required: true
 *       type: string
-*       example: 62ec8e3efccf63a08d402357
+*       example: 62edbc6155615e5af08cb26a
 */
 router.get('/:id', function (req, res, next) {
     const questionId = req.params.id;
@@ -167,7 +167,7 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *                   question8:
 *                       type: string
 *               example:
-*                   id: 62ec8e3dfccf63a08d402305
+*                   id: 62edbc6055615e5af08cb214
 *                   questions1: 1
 *                   questions2: 2
 *                   questions3: 3
