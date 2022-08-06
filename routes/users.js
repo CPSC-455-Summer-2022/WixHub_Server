@@ -175,8 +175,8 @@ router.post('/', function (req, res, next) {
     email: req.body.email,
     password: req.body.password
   };
-  User.find({ email: user.email }).then((user) => {
-    if (user == null || user == {}) {
+  User.find({ email: user.email }).then((users) => {
+    if (users.length == 0) {
       User.create(user).then((result) => {
         res.status(201).send(result);
       }).catch((err) => {
