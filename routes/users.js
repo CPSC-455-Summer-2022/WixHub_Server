@@ -185,16 +185,20 @@ router.post('/', function (req, res, next) {
 // login user
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
-  const foundUser = await User.find({ email: email });
-  if (foundUser != null) {
-    if (password == foundUser[0].password) {
-      const token = generateAccessToken(email);
-      res.json({
-        foundUser,
-        token: `Bearer ${token}`
-      });
-    } else res.sendStatus(402);
-  } else res.sendStatus(403);
+  User.find({ email: email }).then((foundUser, err) => {
+    if (foundUser != null && foundUser != {}) {
+      if (password == foundUser[0].password) {
+        const token = generateAccessToken(email);
+        foundUser = foundUser[0];
+        res.json({
+          foundUser,
+          token: `Bearer ${token}`
+        });
+      } else res.sendStatus(401).send(err);
+    } else res.sendStatus(404).send(err);
+  }).catch(() => {
+    res.status(404).send("User Not Found");
+  });
 });
 
 
