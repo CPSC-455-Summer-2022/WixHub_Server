@@ -139,43 +139,43 @@ function switchHelper(question, destinationsScore, d1, d2, d3, d4, s1, s2, s3, s
 *                   type: object
 *                   required:
 *                   - id
-*                   - question1
-*                   - question2
-*                   - question3
-*                   - question4
-*                   - question5
-*                   - question6
-*                   - question7
-*                   - question8
+*                   - "What type of traveller are you?"
+*                   - "Who are you travelling with?"
+*                   - "How long do you want to travel for?"
+*                   - "Which activity do you like most?"
+*                   - "Which food are you most likely to try?"
+*                   - "What type of footwear defines you?"
+*                   - "What's your favourite aspect of a holiday?"
+*                   - "Which three words best describe your ideal vacation?"
 *                   properties:
 *                   id:
 *                       type: string
-*                   question1:
+*                   "What type of traveller are you?":
 *                       type: string
-*                   question2:
+*                   "Who are you travelling with?":
 *                       type: string
-*                   question3:
+*                   "How long do you want to travel for?":
 *                       type: string
-*                   question4:
+*                   "Which activity do you like most?":
 *                       type: string
-*                   question5:
+*                   "Which food are you most likely to try?":
 *                       type: string
-*                   question6:
+*                   "What type of footwear defines you?":
 *                       type: string
-*                   question7:
+*                   "What's your favourite aspect of a holiday?":
 *                       type: string
-*                   question8:
+*                   "Which three words best describe your ideal vacation?":
 *                       type: string
 *               example:
 *                   id: 62edbc6055615e5af08cb214
-*                   questions1: 1
-*                   questions2: 2
-*                   questions3: 3
-*                   questions4: 4
-*                   questions5: 1
-*                   questions6: 2
-*                   questions7: 3
-*                   questions8: 4
+*                   "What type of traveller are you?": 1
+*                   "Who are you travelling with?": 2
+*                   "How long do you want to travel for?": 3
+*                   "Which activity do you like most?": 4
+*                   "Which food are you most likely to try?": 1
+*                   "What type of footwear defines you?": 2
+*                   "What's your favourite aspect of a holiday?": 3
+*                   "Which three words best describe your ideal vacation?": 4
 *     responses:
 *       201:
 *         description: provides a recommendation (returns id of destination)
@@ -197,14 +197,14 @@ router.patch('/recommendation', function (req, res, next) {
         let userDests = user.destinations;
 
         let destinationsScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        destinationsScore = switchHelper(req.body.question1, destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
-        destinationsScore = switchHelper(req.body.question2, destinationsScore, 1, 4, 9, 3, 6, 9, 7, 4);
-        destinationsScore = switchHelper(req.body.question3, destinationsScore, 8, 6, 13, 14, 3, 6, 8, 7);
-        destinationsScore = switchHelper(req.body.question4, destinationsScore, 2, 11, 6, 8, 5, 8, 4, 8);
-        destinationsScore = switchHelper(req.body.question5, destinationsScore, 2, 3, 6, 12, 6, 6, 8, 5);
-        destinationsScore = switchHelper(req.body.question6, destinationsScore, 4, 12, 10, 8, 6, 9, 7, 5);
-        destinationsScore = switchHelper(req.body.question7, destinationsScore, 13, 9, 1, 8, 6, 6, 8, 5);
-        destinationsScore = switchHelper(req.body.question8, destinationsScore, 12, 6, 4, 9, 4, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["What type of traveller are you?"], destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["Who are you travelling with?"], destinationsScore, 1, 4, 9, 3, 6, 9, 7, 4);
+        destinationsScore = switchHelper(req.body["How long do you want to travel for?"], destinationsScore, 8, 6, 13, 14, 3, 6, 8, 7);
+        destinationsScore = switchHelper(req.body["Which activity do you like most?"], destinationsScore, 2, 11, 6, 8, 5, 8, 4, 8);
+        destinationsScore = switchHelper(req.body["Which food are you most likely to try?"], destinationsScore, 2, 3, 6, 12, 6, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["What type of footwear defines you?"], destinationsScore, 4, 12, 10, 8, 6, 9, 7, 5);
+        destinationsScore = switchHelper(req.body["What's your favourite aspect of a holiday?"], destinationsScore, 13, 9, 1, 8, 6, 6, 8, 5);
+        destinationsScore = switchHelper(req.body["Which three words best describe your ideal vacation?"], destinationsScore, 12, 6, 4, 9, 4, 6, 8, 5);
 
 
         let maxVal = 0;

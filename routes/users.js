@@ -175,10 +175,18 @@ router.post('/', function (req, res, next) {
     email: req.body.email,
     password: req.body.password
   };
-  User.create(user).then((result) => {
-    res.status(201).send(result);
-  }).catch((err) => {
-    res.status(400).send(err);
+  User.find({ email: user.email }).then((user) => {
+    if (user == null || user == {}) {
+      User.create(user).then((result) => {
+        res.status(201).send(result);
+      }).catch((err) => {
+        res.status(400).send(err);
+      });
+    } else {
+      res.status(400).send("User already exists");
+    }
+  }).catch(() => {
+    res.status(400).send("User already exists");
   });
 });
 
