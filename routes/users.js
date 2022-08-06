@@ -23,8 +23,8 @@ var jwt = require('jsonwebtoken');
  *       type: object
  *       required:
  *         - userId
- *         - rname
- *         - lname
+ *         - f_name
+ *         - l_name
  *         - country
  *         - destinations
  *         - question_responses
@@ -32,10 +32,10 @@ var jwt = require('jsonwebtoken');
  *         id:
  *           type: integer
  *           description: The Auto-generated id of a post
- *         rname:
+ *         f_name:
  *           type: string
  *           description: first name of user
- *         lname:
+ *         l_name:
  *           type: string
  *           description: last name of usert
  *         country:
