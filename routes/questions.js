@@ -174,11 +174,11 @@ router.patch('/recommendation', function (req, res, next) {
 
         let destinationsScore = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         destinationsScore = switchHelper(req.body.question1, destinationsScore, 12, 9, 8, 2, 4, 6, 8, 5);
-        destinationsScore = switchHelper(req.body.question2, destinationsScore, 1, 7, 9, 3, 6, 9, 7, 4);
-        destinationsScore = switchHelper(req.body.question3, destinationsScore, 5, 6, 13, 14, 3, 6, 8, 7);
+        destinationsScore = switchHelper(req.body.question2, destinationsScore, 1, 4, 9, 3, 6, 9, 7, 4);
+        destinationsScore = switchHelper(req.body.question3, destinationsScore, 8, 6, 13, 14, 3, 6, 8, 7);
         destinationsScore = switchHelper(req.body.question4, destinationsScore, 2, 11, 6, 8, 5, 8, 4, 8);
         destinationsScore = switchHelper(req.body.question5, destinationsScore, 2, 3, 6, 12, 6, 6, 8, 5);
-        destinationsScore = switchHelper(req.body.question6, destinationsScore, 7, 12, 10, 8, 6, 9, 7, 5);
+        destinationsScore = switchHelper(req.body.question6, destinationsScore, 4, 12, 10, 8, 6, 9, 7, 5);
         destinationsScore = switchHelper(req.body.question7, destinationsScore, 13, 9, 1, 8, 6, 6, 8, 5);
         destinationsScore = switchHelper(req.body.question8, destinationsScore, 12, 6, 4, 9, 4, 6, 8, 5);
 
@@ -194,17 +194,25 @@ router.patch('/recommendation', function (req, res, next) {
         maxIndex = maxIndex + 1;
         userDests.push(maxIndex);
 
+        const set = new Set(userDests);
+        userDests = [...set];
+
         const updatedInfo = {
             "destinations": userDests
         };
-
         User.findByIdAndUpdate(userId, updatedInfo).then(() => {
             Destination.find({ destinationId: maxIndex }).then((recommendedDestination) => {
                 return res
                     .status(201)
-                    .send(recommendedDestination);
+                    .send(recommendedDestination[0]);
+            }).catch((err) => {
+                res.status(404).send(err);
             });
+        }).catch((err) => {
+            res.status(404).send(err);
         });
+    }).catch((err) => {
+        res.status(404).send(err);
     });
 });
 
