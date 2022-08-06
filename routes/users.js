@@ -190,7 +190,46 @@ router.post('/', function (req, res, next) {
   });
 });
 
-// login user
+/**
+* @swagger
+* /users/login:
+*   post:
+*     summary: consumes a user login (email/password) and returns a token if properly authenticated used to login
+*     tags: [Users]
+*     responses:
+*       202:
+*         description: user accepted and token returned
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               items:
+*                 $ref: '#/components/schemas/User'
+*       401:
+*         description: user denied access
+*       404:
+*         description: user does not exist
+*     requestBody:
+*       required: true
+*       description: an email/password combo for authentication
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             required:
+*             - email
+*             - password
+*             properties:
+*               email:
+*                 description: user's email
+*                 type: string
+*               password:
+*                 description: user's password
+*                 type: string
+*           example:
+*             email: josh@test.com
+*             password: 1234password
+*/
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
   User.find({ email: email }).then((foundUser, err) => {
