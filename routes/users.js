@@ -55,7 +55,7 @@ var jwt = require('jsonwebtoken');
  *         rname: josh
  *         lname: tillson
  *         country: canada
- *         question_responses: {"What type of traveller are you?": "1", "Who are you travelling with?": "2","How long do you want to travel for?": "2","Which activity do you like most?": "2","Which food are you most likely to try?": "1","What type of footwear defines you?": "2","What's your favourite aspect of a holiday?": "2","Which three words best describe your ideal vacation?": "4"}
+ *         question_responses: { "What type of traveller are you?": { response: "I like to go with the flow", responseNumber: "1", }, "Who are you travelling with?": { response: "Friends", responseNumber: "2", }, "How long do you want to travel for?": { response: "Two weeks", responseNumber: "3", }, "Which activity do you like most?": { response: "Sunbathe on the beach", responseNumber: "4", }, "Which food are you most likely to try?": { response: "Anything sweet", responseNumber: "1", }, "What type of footwear defines you?": { response: "Leather dress shoes", responseNumber: "2", }, "What's your favourite aspect of a holiday?": { response: "Exploring nature", responseNumber: "3", }, "Which three words best describe your ideal vacation?": { response: "Educational, cultural and amusing", responseNumber: "4", }, }
  *         email: josh@tillson.com
  *         password: 1234password
  */
@@ -340,7 +340,7 @@ router.delete('/', function (req, res) {
 *                       description: user's question responses (please enter in array format)
 *                       type: object 
 *               example: 
-*                 question_responses: {"What type of traveller are you?": "1", "Who are you travelling with?": "2","How long do you want to travel for?": "2","Which activity do you like most?": "2","Which food are you most likely to try?": "1","What type of footwear defines you?": "2","What's your favourite aspect of a holiday?": "2","Which three words best describe your ideal vacation?": "4"}            
+*                 question_responses: { "What type of traveller are you?": { response: "I like to go with the flow", responseNumber: "1", }, "Who are you travelling with?": { response: "Friends", responseNumber: "2", }, "How long do you want to travel for?": { response: "Two weeks", responseNumber: "3", }, "Which activity do you like most?": { response: "Sunbathe on the beach", responseNumber: "4", }, "Which food are you most likely to try?": { response: "Anything sweet", responseNumber: "1", }, "What type of footwear defines you?": { response: "Leather dress shoes", responseNumber: "2", }, "What's your favourite aspect of a holiday?": { response: "Exploring nature", responseNumber: "3", }, "Which three words best describe your ideal vacation?": { response: "Educational, cultural and amusing", responseNumber: "4", }}
 */
 
 router.patch('/edit/:id', function (req, res) {

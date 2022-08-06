@@ -3,40 +3,54 @@ const mongoose = require("mongoose");
 // Schema constructor
 const Schema = mongoose.Schema;
 
+const userIndQuestionResponseSchema = new Schema({
+    response: {
+        type: String,
+        require: true
+    },
+    responseNumber: {
+        type: String,
+        require: true
+    }
+},
+    { _id: false }
+);
+
 const userResponseSchema = new Schema({
     "What type of traveller are you?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "Who are you travelling with?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "How long do you want to travel for?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "Which activity do you like most?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "Which food are you most likely to try?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "What type of footwear defines you?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "What's your favourite aspect of a holiday?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
     "Which three words best describe your ideal vacation?": {
-        type: String,
+        type: userIndQuestionResponseSchema,
         require: true
     },
-});
+},
+    { _id: false });
 
 // create user schema
 const UserSchema = new Schema({
