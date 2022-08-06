@@ -50,7 +50,7 @@ const questionData = [
         ]
     },
     {
-        "question": "What type of footwear define you?",
+        "question": "What type of footwear defines you?",
         "questionImage": "https://images.unsplash.com/photo-1528669697102-a6edb9b6a282?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
         "destinationMapping": [
             { "response": "Hiking boots", "responseNumber": 1, "destination": 7, "weighting": 6 },

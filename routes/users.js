@@ -5,6 +5,9 @@ const cors = require('cors');
 router.use(cors());
 var { v4: uuid } = require('uuid');
 const User = require("../models/users");
+var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+
 /**
  * @swagger
  *  tags:
@@ -39,7 +42,7 @@ const User = require("../models/users");
  *           type: string
  *           descripton: country of user
  *         question_responses:
- *           type: array
+ *           type: object
  *           descripton: users question responeses
  *         email:
  *           type: string
@@ -48,17 +51,14 @@ const User = require("../models/users");
  *           type: string
  *           descripton: user's password (used to login)
  *       example:
- *         id: 1
+ *         _id: 1
  *         rname: josh
  *         lname: tillson
  *         country: canada
- *         question_responses: [1,1,1,1,1,1,1,1]
+ *         question_responses: {"What type of traveller are you?": "1", "Who are you travelling with?": "2","How long do you want to travel for?": "2","Which activity do you like most?": "2","Which food are you most likely to try?": "1","What type of footwear defines you?": "2","What's your favourite aspect of a holiday?": "2","Which three words best describe your ideal vacation?": "4"}
  *         email: josh@tillson.com
  *         password: 1234password
  */
-var bcrypt = require('bcryptjs');
-var jwt = require('jsonwebtoken');
-
 
 /**
 * @swagger
@@ -158,12 +158,13 @@ router.get('/:id', function (req, res, next) {
 *                 type: string
 *               question_responses:
 *                 description: a user's question responses (please enter in array format)
-*                 type: array
+*                 type: object
 *           example:
 *             f_name: Josh
 *             l_name: Tillson
 *             country: Canada
-*             question_responses: ["1","2","3","4","1","2","3","4",]
+*             email: josh@test.com
+*             password: 1234password
 */
 
 router.post('/', function (req, res, next) {
@@ -286,12 +287,9 @@ router.delete('/', function (req, res) {
 *                       type: string              
 *                     question_responses:
 *                       description: user's question responses (please enter in array format)
-*                       type: array 
+*                       type: object 
 *               example: 
-*                 f_name: Josh
-*                 l_name: Tillson
-*                 country: Canada
-*                 question_responses: ["1","2","3","4","1","2","3","4",]             
+*                 question_responses: {"What type of traveller are you?": "1", "Who are you travelling with?": "2","How long do you want to travel for?": "2","Which activity do you like most?": "2","Which food are you most likely to try?": "1","What type of footwear defines you?": "2","What's your favourite aspect of a holiday?": "2","Which three words best describe your ideal vacation?": "4"}            
 */
 
 router.patch('/edit/:id', function (req, res) {
