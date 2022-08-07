@@ -356,7 +356,7 @@ router.patch('/edit/:id', function (req, res) {
           res.status(404).send(err);
         });
       }).catch((err) => {
-        res.status(400).send(err);
+        res.status(400).send("Email already used");
       });
     } else {
       res.status(400).send("Email already used");
