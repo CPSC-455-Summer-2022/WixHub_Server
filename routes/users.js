@@ -363,13 +363,13 @@ router.patch('/edit/:id', function (req, res) {
             res.status(404).send(err);
           });
         }).catch(() => {
-          res.status(400).send("Email already used");
+          res.status(409).send("Email associated with existing user");
         });
       } else {
-        res.status(400).send("Email already used");
+        res.status(409).send("Email associated with existing user");
       }
     }).catch(() => {
-      res.status(400).send("Email already used");
+      res.status(409).send("Email associated with existing user");
     });
   } else {
     User.findByIdAndUpdate(userId, updatedInfo).then(() => {
