@@ -355,7 +355,7 @@ router.patch('/edit/:id', function (req, res) {
   if (req.body.hasOwnProperty('email')) {
     const updatedEmail = req.body.email;
     User.find({ email: updatedEmail }).then((users) => {
-      if (users.length == 0) {
+      if (users.length == 0 || userId == users[0]._id) {
         User.findByIdAndUpdate(userId, updatedInfo).then(() => {
           User.findById(userId).then((result) => {
             res.status(203).send(result);
