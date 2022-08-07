@@ -346,15 +346,25 @@ router.delete('/', function (req, res) {
 router.patch('/edit/:id', function (req, res) {
   const userId = req.params.id;
   const updatedInfo = req.body;
-  User.findByIdAndUpdate(userId, updatedInfo).then(() => {
-    User.findById(userId).then((result) => {
-      res.status(203).send(result);
-    }).catch((err) => {
-      res.status(404).send(err);
-    });
-  }).catch((err) => {
-    res.status(400).send(err);
+  const updatedEmail = req.body.email;
+  User.find({ email: updatedEmail }).then((users) => {
+    if (users.length == 0) {
+      User.findByIdAndUpdate(userId, updatedInfo).then(() => {
+        User.findById(userId).then((result) => {
+          res.status(203).send(result);
+        }).catch((err) => {
+          res.status(404).send(err);
+        });
+      }).catch((err) => {
+        res.status(400).send(err);
+      });
+    } else {
+      res.status(400).send("Email already used");
+    }
+  }).catch(() => {
+    res.status(400).send("Email already used");
   });
+
 });
 
 /**
