@@ -383,7 +383,7 @@ router.patch('/edit/:id', function (req, res) {
 *       required: true
 *       type: string
 *       example: 62eedab8074703dd57920672
-*     - in: path
+*     - in: query
 *       name: destinationToDelete
 *       description: destinationID to delete
 *       required: true
