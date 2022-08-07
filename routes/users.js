@@ -336,8 +336,14 @@ router.delete('/', function (req, res) {
 *                     country:
 *                       description: user's country
 *                       type: string              
+*                     email:
+*                       description: user's email
+*                       type: string              
+*                     password:
+*                       description: user's password
+*                       type: string              
 *                     question_responses:
-*                       description: user's question responses (please enter in array format)
+*                       description: user's question responses
 *                       type: object 
 *               example: 
 *                 question_responses: { "What type of traveller are you?": { response: "I like to go with the flow", responseNumber: "1", }, "Who are you travelling with?": { response: "Friends", responseNumber: "2", }, "How long do you want to travel for?": { response: "Two weeks", responseNumber: "3", }, "Which activity do you like most?": { response: "Sunbathe on the beach", responseNumber: "4", }, "Which food are you most likely to try?": { response: "Anything sweet", responseNumber: "1", }, "What type of footwear defines you?": { response: "Leather dress shoes", responseNumber: "2", }, "What's your favourite aspect of a holiday?": { response: "Exploring nature", responseNumber: "3", }, "Which three words best describe your ideal vacation?": { response: "Educational, cultural and amusing", responseNumber: "4", }}
@@ -346,25 +352,36 @@ router.delete('/', function (req, res) {
 router.patch('/edit/:id', function (req, res) {
   const userId = req.params.id;
   const updatedInfo = req.body;
-  const updatedEmail = req.body.email;
-  User.find({ email: updatedEmail }).then((users) => {
-    if (users.length == 0) {
-      User.findByIdAndUpdate(userId, updatedInfo).then(() => {
-        User.findById(userId).then((result) => {
-          res.status(203).send(result);
-        }).catch((err) => {
-          res.status(404).send(err);
+  if (req.body.hasOwnProperty('email')) {
+    const updatedEmail = req.body.email;
+    User.find({ email: updatedEmail }).then((users) => {
+      if (users.length == 0) {
+        User.findByIdAndUpdate(userId, updatedInfo).then(() => {
+          User.findById(userId).then((result) => {
+            res.status(203).send(result);
+          }).catch((err) => {
+            res.status(404).send(err);
+          });
+        }).catch(() => {
+          res.status(400).send("Email already used");
         });
-      }).catch((err) => {
+      } else {
         res.status(400).send("Email already used");
-      });
-    } else {
+      }
+    }).catch(() => {
       res.status(400).send("Email already used");
-    }
-  }).catch(() => {
-    res.status(400).send("Email already used");
-  });
-
+    });
+  } else {
+    User.findByIdAndUpdate(userId, updatedInfo).then(() => {
+      User.findById(userId).then((result) => {
+        res.status(203).send(result);
+      }).catch((err) => {
+        res.status(404).send(err);
+      });
+    }).catch(() => {
+      res.status(404).send("Couldn't find/update user");
+    });
+  }
 });
 
 /**
