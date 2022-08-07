@@ -383,21 +383,12 @@ router.patch('/edit/:id', function (req, res) {
 *       required: true
 *       type: string
 *       example: 62eedab8074703dd57920672
-*     requestBody:
+*     - in: path
+*       name: destinationToDelete
+*       description: destinationID to delete
 *       required: true
-*       description: the user destination to be removed
-*       content:
-*           application/json:
-*               schema:
-*                   type: object
-*                   required:
-*                     - destinationToDelete
-*                   properties:
-*                     destinationToDelete:
-*                       description: the destinationID for the destination to be deleted
-*                       type: string
-*               example: 
-*                   destinationToDelete: 1        
+*       type: string
+*       example: 12
 */
 router.patch('/deleteUserDestination/:id', function (req, res) {
   const userId = req.params.id;
