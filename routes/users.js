@@ -172,7 +172,7 @@ router.post('/', function (req, res, next) {
     f_name: req.body.f_name,
     l_name: req.body.l_name,
     country: req.body.country,
-    email: req.body.email,
+    email: req.body.email.toLowerCase(),
     password: req.body.password
   };
   User.find({ email: user.email }).then((users) => {
@@ -232,7 +232,7 @@ router.post('/', function (req, res, next) {
 */
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
-  User.find({ email: email }).then((foundUser, err) => {
+  User.find({ email: email.toLowerCase() }).then((foundUser, err) => {
     if (foundUser != null && foundUser != {}) {
       if (password == foundUser[0].password) {
         const token = generateAccessToken(email);
